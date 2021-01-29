@@ -1,3 +1,5 @@
 layout: page
 title: "Start"
-permalink: /
+permalink: /pages/
+
+this is a test
