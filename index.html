@@ -59,11 +59,11 @@
     //this will come from a json file
     var postdata = fetchData(`postlog.json`);
 
-    postdata.posts.sort(function(a, b) {
-      return new Date(a.postdate) - new Date(b.postdate);
-    });
-
     $(document).ready(function(){
+      postdata.posts.sort(function(a, b) {
+        return new Date(a.postdate) - new Date(b.postdate);
+      });
+
       Handlebars.getTemplate('header-template');
       Handlebars.getTemplate('navigation-template');
       Handlebars.getTemplate('footer-template');
