@@ -144,7 +144,7 @@
     };
     
     //gather templates
-    compiledTemplates.footer = Handlebars.getTemplate('footer-template');
+    compiledTemplates.footer = Handlebars.compile( Handlebars.getTemplate('footer-template') );
   
     $(document).ready(function(){
       //apply footer
