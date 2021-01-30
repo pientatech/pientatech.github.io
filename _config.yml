@@ -1,6 +1,6 @@
 title: Game
 #email: your-email@domain.com
-baseurl: "/" 
-url: "/" 
+baseurl: / 
+url: / 
 
 theme: jekyll-theme-hacker
