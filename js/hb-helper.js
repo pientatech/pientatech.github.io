@@ -18,7 +18,7 @@ Handlebars.getTemplate = function(name) {
 
 let fetchData = async (name) => {
     let response = await fetch( 'posts/' + name );
-    let output = await response.json();
+    let output = await response.json().then(data);
 
     output.posts.sort(function(a, b) {
         return new Date(a.postdate) - new Date(b.postdate);
