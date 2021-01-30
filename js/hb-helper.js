@@ -22,6 +22,7 @@ let fetchData = function (name, postdata) {
             console.log( data );
         })
         .done(function( data ) {
+            postdata = data;
             postdata.posts.sort(function(a, b) {
                 return new Date(a.postdate) - new Date(b.postdate);
             });
