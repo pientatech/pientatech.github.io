@@ -25,7 +25,7 @@ let fetchData =  (name) => {
             status: response.status
         })
     ).then(res => {
-        console.log(res.status, res.data.title)
+        console.log(res.status, res.data)
     }));
 
 
