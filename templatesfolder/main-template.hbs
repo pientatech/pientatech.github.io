@@ -2,15 +2,15 @@
   <div class="col-lg-8 col-md-10 mx-auto">
     {{#each posts}}
       <div class="post-preview">
-        <a href="{{this.page}}">
+        <a href="{{page}}">
           <h2 class="post-title">
-            {{this.title}}
+            {{title}}
           </h2>
           <h3 class="post-subtitle">
-            {{this.sub_title}}
+            {{sub_title}}
           </h3>
         </a>
-        <p class="post-meta">Posted by {{this.author}} on {{this.postdate}}</p> 
+        <p class="post-meta">Posted by {{author}} on {{postdate}}</p> 
       </div>
     {{/each}}
 
