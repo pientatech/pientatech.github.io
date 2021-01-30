@@ -23,6 +23,8 @@ console.log(postdata);
             postdata.posts.sort(function(a, b) {
                 return new Date(a.postdate) - new Date(b.postdate);
             });
+
+            initMainPage();
         },
         async : false
     });
