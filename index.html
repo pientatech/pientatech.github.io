@@ -24,6 +24,7 @@
 </head>
 
 <body>
+  <header></header>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -43,19 +44,6 @@
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" > <!-- style="background-image: url('img/home-bg.jpg')" -->
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>Cardboard RPG</h1>
-            <span class="subheading">Dev Blog for an awesome Unity Game</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
 
   <!-- Main Content -->
   <div class="container">
@@ -124,6 +112,7 @@
 
   <hr>
 
+  <footer></footer>
 
 
   <!-- Bootstrap core JavaScript -->
@@ -145,8 +134,8 @@
       Handlebars.getTemplate('footer-template');
 
       //apply footer
-      $('body').prepend(Handlebars.templates['header-template']({image: 'first.png', heading: 'Cardboard RPG', sub_heading: 'Low-Poly Turn Based RPG'}));
-      $('body').append(Handlebars.templates['footer-template']());
+      $('header').replaceWith(Handlebars.templates['header-template']({image: 'first.png', heading: 'Cardboard RPG', sub_heading: 'Low-Poly Turn Based RPG'}));
+      $('footer').replaceWith(Handlebars.templates['footer-template']());
     });
   </script>
 </body>
