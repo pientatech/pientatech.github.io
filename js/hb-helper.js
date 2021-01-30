@@ -26,7 +26,7 @@ let fetchData = async function (name) {
           output = data;
           console.log(data)
         }
-        console.log(output);
+        console.dir(output);
         output.posts.sort(function(a, b) {
             return new Date(a.postdate) - new Date(b.postdate);
         });
