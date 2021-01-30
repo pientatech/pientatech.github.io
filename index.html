@@ -140,9 +140,12 @@
 
   <script>
     $(document).ready(function(){
+      Handlebars.getTemplate('header-template');
+      Handlebars.getTemplate('navigation-template');
       Handlebars.getTemplate('footer-template');
 
       //apply footer
+      $('body').prepend(Handlebars.templates['header-template']({image: 'first.png', heading: 'Cardboard RPG', sub_heading: 'Low-Poly Turn Based RPG'}));
       $('body').append(Handlebars.templates['footer-template']());
     });
   </script>
