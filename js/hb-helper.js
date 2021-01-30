@@ -14,7 +14,9 @@ Handlebars.getTemplate = function(name) {
   return Handlebars.templates[name];
 };
 
-let fetchData = async function (name) {
+
+
+let fetchData = async (name) => {
     let response = await fetch( 'posts/' + name );
     let output = await response.json();
 
