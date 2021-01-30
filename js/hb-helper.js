@@ -15,23 +15,17 @@ Handlebars.getTemplate = function(name) {
 };
 
 let fetchData = function (name) {
-    let result = '';
-
     $.ajax({
         url : 'posts/' + name,
         success : function(data) {
-            data = JSON.parse(data);
-console.log(data);
-            data.posts.sort(function(a, b) {
+            postdata = JSON.parse(data);
+console.log(postdata);
+            postdata.posts.sort(function(a, b) {
                 return new Date(a.postdate) - new Date(b.postdate);
             });
-
-            result = data;
         },
         async : false
     });
-
-    return result;
 };
 
 let fetchPage = function (name) {
