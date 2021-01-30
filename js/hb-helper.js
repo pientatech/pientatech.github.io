@@ -14,8 +14,7 @@ Handlebars.getTemplate = function(name) {
   return Handlebars.templates[name];
 };
 
-let fetchData = function (name, postdata) {
-    var result = {};
+let fetchData = function (name) {
     $.getJSON( 'posts/' + name )
         .fail(function( data ) {
             console.log('fail');
@@ -29,9 +28,6 @@ let fetchData = function (name, postdata) {
             console.dir(result);
             result = data;
         });
-    
-        console.dir(result);
-    return result;
 };
 
 let fetchPage = function (name) {
