@@ -82,10 +82,13 @@
 
   <script>
     $(document).ready(function(){
+      Handlebars.getTemplate('header-template');
+      Handlebars.getTemplate('navigation-template');
       Handlebars.getTemplate('footer-template');
 
       //apply footer
-      $('body').append(Handlebars.templates['footer-template']());
+      $('header').replaceWith(Handlebars.templates['header-template']({image: 'first.png', heading: 'Cardboard RPG', sub_heading: 'Low-Poly Turn Based RPG'}));
+      $('footer').replaceWith(Handlebars.templates['footer-template']());
     });
   </script>
 
