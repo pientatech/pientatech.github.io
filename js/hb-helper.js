@@ -17,7 +17,7 @@ Handlebars.getTemplate = function(name) {
 
 
 let fetchData =  (name) => {
-
+    let val = {};
 
     let data = fetch('posts/' + name).then(response => 
         response.json().then(data => ({
@@ -26,7 +26,7 @@ let fetchData =  (name) => {
         })
     ).then(res => {
         console.log(res.status, res.data)
-        return res.data;
+        val = res.data;
     }));
 
 
@@ -39,7 +39,7 @@ let fetchData =  (name) => {
     //     return new Date(a.postdate) - new Date(b.postdate);
     // });
 
-    return data;
+    return val;
 };
 
 let fetchPage = function (name) {
