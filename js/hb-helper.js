@@ -14,7 +14,7 @@ Handlebars.getTemplate = function(name) {
   return Handlebars.templates[name];
 };
 
-let fetchData = function (name) {
+let fetchData = async function (name) {
     $.getJSON( 'posts/' + name )
         .fail(function( data ) {
             console.log('fail');
