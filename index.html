@@ -57,13 +57,9 @@
 
   <script>
     //this will come from a json file
-    var postdata = JSON.parse(fetchData(`postlog.json`));
+    var postdata = fetchData(`postlog.json`);
 
     $(document).ready(function(){
-      postdata.posts.sort(function(a, b) {
-        return new Date(a.postdate) - new Date(b.postdate);
-      });
-
       Handlebars.getTemplate('header-template');
       Handlebars.getTemplate('navigation-template');
       Handlebars.getTemplate('footer-template');
@@ -109,7 +105,7 @@
 
       //fecth page, add it to template data
       if(post) {
-        $('div#main_block').html(Handlebars.templates['post-detail-template'](post) + fetchData(`post-${page}.html`));
+        $('div#main_block').html(Handlebars.templates['post-detail-template'](post) + fetchPage(`post-${page}.html`));
       }
     };
   </script>

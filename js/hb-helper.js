@@ -20,7 +20,12 @@ let fetchData = function (name) {
     $.ajax({
         url : 'posts/' + name,
         success : function(data) {
-            console.log(data);
+            data = JSON.parse(data);
+
+            data.posts.sort(function(a, b) {
+                return new Date(a.postdate) - new Date(b.postdate);
+            });
+
             result = data;
         },
         async : false
@@ -29,3 +34,16 @@ let fetchData = function (name) {
     return result;
 };
 
+let fetchPage = function (name) {
+    let result = '';
+
+    $.ajax({
+        url : 'posts/' + name,
+        success : function(data) {
+            result = data;
+        },
+        async : false
+    });
+
+    return result;
+};
