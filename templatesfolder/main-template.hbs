@@ -1,19 +1,17 @@
 <div class="row">
   <div class="col-lg-8 col-md-10 mx-auto">
-    {{#each posts as |post|}}
-      {{#> childEntry}}
+    {{#each posts}}
       <div class="post-preview">
-        <a href="{{post.page}}">
+        <a href="{{this.page}}">
           <h2 class="post-title">
-            {{post.title}}
+            {{this.title}}
           </h2>
           <h3 class="post-subtitle">
-            {{post.sub_title}}
+            {{this.sub_title}}
           </h3>
         </a>
-        <p class="post-meta">Posted by {{post.author}} on {{post.postdate}}</p> 
+        <p class="post-meta">Posted by {{this.author}} on {{this.postdate}}</p> 
       </div>
-      {{/childEntry}}
     {{/each}}
 
     <hr>
