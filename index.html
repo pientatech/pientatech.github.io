@@ -60,7 +60,8 @@
     var postdata = {};   
 
     $(document).ready(function(){
-      fetchData(`postlog.json`, postdata);
+      postdata = fetchData(`postlog.json`);
+      initMainPage();
     });
 
     var initMainPage = function(){

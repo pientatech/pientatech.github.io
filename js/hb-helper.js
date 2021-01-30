@@ -15,7 +15,7 @@ Handlebars.getTemplate = function(name) {
 };
 
 let fetchData = function (name, postdata) {
-
+    var result = {};
     $.getJSON( 'posts/' + name )
         .fail(function( data ) {
             console.log('fail');
@@ -23,31 +23,14 @@ let fetchData = function (name, postdata) {
         })
         .done(function( data ) {
             postdata = data;
-            postdata.posts.sort(function(a, b) {
+            data.posts.sort(function(a, b) {
                 return new Date(a.postdate) - new Date(b.postdate);
             });
 
-            initMainPage();
+            result = data;
         });
-
-
-
-
-
-//     $.ajax({
-//         dataType: "json",
-//         url : 'posts/' + name,
-//         success : function(data) {
-//             postdata = JSON.parse(data);
-// console.log(postdata);
-//             postdata.posts.sort(function(a, b) {
-//                 return new Date(a.postdate) - new Date(b.postdate);
-//             });
-
-//             initMainPage();
-//         },
-//         async : false
-//     });
+    
+    return result;
 };
 
 let fetchPage = function (name) {
