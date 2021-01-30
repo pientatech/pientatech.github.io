@@ -20,6 +20,7 @@ let fetchData = function (name) {
     $.ajax({
         url : 'posts/' + name,
         success : function(data) {
+            console.log(data);
             result = data;
         },
         async : false
