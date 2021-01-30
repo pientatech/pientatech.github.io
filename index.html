@@ -76,7 +76,7 @@
 
     var loadMain = function () {
       //grab the top four items from postdata
-      let top4 = {posts: postdata.slice(0, 3) };
+      let top4 = {posts: postdata.posts.slice(0, 3) };
       $('div#main_block').replaceWith(Handlebars.templates['main-template'](top4));
     };
   </script>
