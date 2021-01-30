@@ -61,9 +61,9 @@
 
     $(document).ready(function(){
       postdata = fetchData(`postlog.json`);
-      postdata = postdata.posts.sort(function(a, b) {
-        return new Date(a.postdate) - new Date(b.postdate);
-      });
+      // postdata = postdata.posts.sort(function(a, b) {
+      //   return new Date(a.postdate) - new Date(b.postdate);
+      // });
 
 
       console.dir(postdata);
