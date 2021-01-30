@@ -26,10 +26,11 @@ let fetchData = function (name, postdata) {
             data.posts.sort(function(a, b) {
                 return new Date(a.postdate) - new Date(b.postdate);
             });
-
+            console.dir(result);
             result = data;
         });
     
+        console.dir(result);
     return result;
 };
 
