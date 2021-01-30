@@ -19,16 +19,26 @@ Handlebars.getTemplate = function(name) {
 let fetchData = async (name) => {
 
 
-    let response = fetch( 'posts/' + name );
-    response.then( response => response.json() )
-        .then(posts => posts );
+    let data = fetch('posts/' + name).then(response => 
+        response.json().then(data => ({
+            data: data,
+            status: response.status
+        })
+    ).then(res => {
+        console.log(res.status, res.data.title)
+    }));
+
+
+    // let response = fetch( 'posts/' + name );
+    // response.then( response => response.json() )
+    //     .then(posts => posts );
 
     
-        response.posts.sort(function(a, b) {
-        return new Date(a.postdate) - new Date(b.postdate);
-    });
+    //     response.posts.sort(function(a, b) {
+    //     return new Date(a.postdate) - new Date(b.postdate);
+    // });
 
-    return response;
+    return data;
 };
 
 let fetchPage = function (name) {
