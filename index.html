@@ -57,16 +57,10 @@
 
   <script>
     //this will come from a json file
-    var postdata = {posts: [
-      {page:'1', title:'Title a',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 13:45:00')},
-      {page:'2', title:'Title b',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 14:45:00')},
-      {page:'3', title:'Title c',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 15:45:00')},
-      {page:'4', title:'Title d',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 16:45:00')},
-      {page:'5', title:'Title e',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 30, 2021 17:45:00')},
-    ]};
+    var postdata = fetchData(`postlog.json`);
 
     postdata.posts.sort(function(a, b) {
-      return a.postdate - b.postdate;
+      return new Date(a.postdate) - new Date(b.postdate);
     });
 
     $(document).ready(function(){
@@ -75,6 +69,7 @@
       Handlebars.getTemplate('footer-template');
       Handlebars.getTemplate('main-template');
       Handlebars.getTemplate('about-template');
+      Handlebars.getTemplate('post-detail-template');
 
       //apply footer
       $('nav').replaceWith(Handlebars.templates['navigation-template']({pages: ['Home','About'], menuname: 'Menu'}));
@@ -84,7 +79,15 @@
       
     });
 
-    
+    var lookupPost = function(page){
+      for(var post in postdata.posts){
+        if(post.page == page){
+          return post;
+        }
+      }
+
+      return undefined;
+    };
 
     var loadMain = function () {
       //grab the top four items from postdata
@@ -97,6 +100,16 @@
          loadMain();
       } else {
         $('div#main_block').html(Handlebars.templates[val.toLowerCase() + '-template']());
+      }
+    };
+
+    var loadPost = function (page) {
+      //get post
+      let post = lookupPost(page);
+
+      //fecth page, add it to template data
+      if(post) {
+        $('div#main_block').html(Handlebars.templates['post-detail-template'](post) + fetchData(`post-${page}.html`));
       }
     };
   </script>

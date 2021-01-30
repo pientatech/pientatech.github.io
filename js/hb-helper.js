@@ -14,5 +14,17 @@ Handlebars.getTemplate = function(name) {
   return Handlebars.templates[name];
 };
 
+let fetchData = function (name) {
+    let result = '';
 
+    $.ajax({
+        url : 'posts/' + name,
+        success : function(data) {
+            result = data;
+        },
+        async : false
+    });
+
+    return result;
+};
 
