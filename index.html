@@ -66,7 +66,7 @@
     ]};
 
     postdata.posts.sort(function(a, b) {
-    return a.postdate - b.postdate;
+      return a.postdate - b.postdate;
     });
 
     $(document).ready(function(){
@@ -77,7 +77,7 @@
       Handlebars.getTemplate('about-template');
 
       //apply footer
-      $('nav').replaceWith(Handlebars.templates['navigation-template']({pages: ['About'], menuname: 'Menu'}));
+      $('nav').replaceWith(Handlebars.templates['navigation-template']({pages: ['Home','About'], menuname: 'Menu'}));
       $('header').replaceWith(Handlebars.templates['header-template']({image: 'first.png', heading: 'Cardboard RPG', sub_heading: 'Low-Poly Turn Based RPG'}));
       $('footer').replaceWith(Handlebars.templates['footer-template']());
       loadMain();
@@ -93,7 +93,11 @@
     };
 
     var loadNavigation = function (val) {
-      $('div#main_block').html(Handlebars.templates[val.toLowerCase() + '-template']());
+      if (val.toLowerCase() == 'home') { 
+         loadMain();
+      } else {
+        $('div#main_block').html(Handlebars.templates[val.toLowerCase() + '-template']());
+      }
     };
   </script>
 </body>
