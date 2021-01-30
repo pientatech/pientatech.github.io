@@ -22,11 +22,11 @@ let fetchData = function (name) {
         })
         .done(function( data ) {
             postdata = data;
-            data.posts.sort(function(a, b) {
+            postdata.posts.sort(function(a, b) {
                 return new Date(a.postdate) - new Date(b.postdate);
             });
-            console.dir(result);
-            result = data;
+            console.dir(postdata);
+
         });
 };
 
