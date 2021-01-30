@@ -15,23 +15,19 @@ Handlebars.getTemplate = function(name) {
 };
 
 let fetchData = async function (name) {
+    var output;
+    let response = await fetch( 'posts/' + name );
+    if (response.status !== 200) {
+        console.log("Looks like there was a problem. Status Code: " + response.status);
+    } else {
+        const data = await response.json()
+        output = data;
+    }
+    output.posts.sort(function(a, b) {
+        return new Date(a.postdate) - new Date(b.postdate);
+    });
 
-
-        var output;
-        let response = await fetch( 'posts/' + name );
-        if (response.status !== 200) {
-          console.log("Looks like there was a problem. Status Code: " + response.status);
-        } else {
-          const data = await response.json()
-          output = data;
-          console.log(data)
-        }
-        console.dir(output);
-        output.posts.sort(function(a, b) {
-            return new Date(a.postdate) - new Date(b.postdate);
-        });
-
-        return output;
+    return output;
 };
 
 let fetchPage = function (name) {
