@@ -14,13 +14,15 @@ Handlebars.getTemplate = function(name) {
   return Handlebars.templates[name];
 };
 
-let fetchData = function (name) {
+let fetchData = function (name, postdata) {
 
     $.getJSON( 'posts/' + name )
         .fail(function( data ) {
+            console.log('fail');
             console.log( data );
         })
         .done(function( data ) {
+            console.log('success');
             postdata = JSON.parse(data);
 console.log(postdata);
             postdata.posts.sort(function(a, b) {
