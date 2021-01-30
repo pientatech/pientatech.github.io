@@ -23,6 +23,7 @@ let fetchData = function (name, postdata) {
         })
         .done(function( data ) {
             console.log('success');
+            console.dir(data);
             postdata = JSON.parse(data);
 console.log(postdata);
             postdata.posts.sort(function(a, b) {
