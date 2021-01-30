@@ -32,9 +32,7 @@ let fetchData = async function (name) {
 
     let response = await fetch( 'posts/' + name ) 
     .then((response) => response.json())
-    .then((posts) => {        
-        return posts;
-    });
+    .then((posts) => { posts });
 };
 
 let fetchPage = function (name) {
