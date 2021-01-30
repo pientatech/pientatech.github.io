@@ -60,7 +60,7 @@
     var postdata = {};   
 
     $(document).ready(function(){
-      fetchData(`postlog.json`).then(data => postdata = data);
+      fetchData(`postlog.json`).then(data => console.log(data));
       // postdata = postdata.posts.sort(function(a, b) {
       //   return new Date(a.postdate) - new Date(b.postdate);
       // });
