@@ -52,7 +52,11 @@
   <script>
     //this will come from a json file
     var postdata = {posts: [
-      {page:'1', title:'Title',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 13:45:00')},
+      {page:'1', title:'Title a',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 13:45:00')},
+      {page:'2', title:'Title b',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 14:45:00')},
+      {page:'3', title:'Title c',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 15:45:00')},
+      {page:'4', title:'Title d',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 16:45:00')},
+      {page:'5', title:'Title e',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 17:45:00')},
     ]};
 
     $(document).ready(function(){
@@ -65,9 +69,16 @@
       $('nav').replaceWith(Handlebars.templates['navigation-template']({pages: ['about'], menuname: 'Menu'}));
       $('header').replaceWith(Handlebars.templates['header-template']({image: 'first.png', heading: 'Cardboard RPG', sub_heading: 'Low-Poly Turn Based RPG'}));
       $('footer').replaceWith(Handlebars.templates['footer-template']());
-      $('div#main_block').replaceWith(Handlebars.templates['main-template'](postdata));
+      //$('div#main_block').replaceWith(Handlebars.templates['main-template'](postdata));
+      loadMain();
       
     });
+
+    var loadMain = function () {
+      //grab the top four items from postdata
+      let top4 = {posts: postdata.slice(0, 3) };
+      $('div#main_block').replaceWith(Handlebars.templates['main-template'](top4));
+    };
   </script>
 </body>
 
