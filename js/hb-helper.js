@@ -32,10 +32,7 @@ let fetchData = async function (name) {
 
     let response = await fetch( 'posts/' + name ) 
     .then((response) => response.json())
-    .then((posts) => {
-        posts.sort(function(a, b) {
-            return new Date(a.postdate) - new Date(b.postdate);
-        });        
+    .then((posts) => {        
         return posts;
     });
 };
