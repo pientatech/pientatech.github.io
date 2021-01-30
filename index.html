@@ -139,16 +139,11 @@
 
 
   <script>
-    var compiledTemplates = {
-      footer : undefined,
-    };
-    
-    //gather templates
-    compiledTemplates.footer = Handlebars.compile( Handlebars.getTemplate('footer-template') );
-  
     $(document).ready(function(){
+      Handlebars.getTemplate('footer-template');
+
       //apply footer
-      $('body').append(compiledTemplates.footer(""));
+      $('body').append(Handlebars.templates['footer-template']());
     });
   </script>
 </body>
