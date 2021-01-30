@@ -16,6 +16,7 @@ Handlebars.getTemplate = function(name) {
 
 let fetchData = function (name) {
     $.ajax({
+        dataType: "json",
         url : 'posts/' + name,
         success : function(data) {
             postdata = JSON.parse(data);
