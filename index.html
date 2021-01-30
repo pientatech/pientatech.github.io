@@ -51,9 +51,9 @@
 
   <script>
     //this will come from a json file
-    var posts = [
+    var postdata = {posts: [
       {page:'1', title:'Title',sub_title:'Sub-Title',author:'Me',postdate: new Date('January 31, 2021 13:45:00')},
-    ];
+    ]};
 
     $(document).ready(function(){
       Handlebars.getTemplate('header-template');
