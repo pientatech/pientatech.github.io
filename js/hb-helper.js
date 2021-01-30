@@ -21,7 +21,7 @@ let fetchData = function (name) {
         url : 'posts/' + name,
         success : function(data) {
             data = JSON.parse(data);
-
+console.log(data);
             data.posts.sort(function(a, b) {
                 return new Date(a.postdate) - new Date(b.postdate);
             });
