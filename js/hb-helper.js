@@ -26,6 +26,7 @@ let fetchData =  (name) => {
         })
     ).then(res => {
         console.log(res.status, res.data)
+        return res.data;
     }));
 
 
