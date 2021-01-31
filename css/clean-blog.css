@@ -409,8 +409,3 @@ footer .copyright {
   padding: 25px 35px;
 }
 
-input[type=checkbox][disabled]{
-  border: 1px solid #1e5f05;
-  background-color: #eeeeee;
-  color: #bdbdbd;
-}
