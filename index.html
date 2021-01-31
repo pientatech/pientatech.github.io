@@ -72,7 +72,7 @@
       Handlebars.getTemplate('post-detail-template');
 
       //apply footer
-      $('nav').replaceWith(Handlebars.templates['navigation-template']({pages: ['About'], menuname: 'Menu'}));
+      $('nav').replaceWith(Handlebars.templates['navigation-template']({pages: ['Home','About'], menuname: 'Menu'}));
       $('header').replaceWith(Handlebars.templates['header-template']({image: 'first.png', heading: 'Cardboard RPG', sub_heading: 'Low-Poly Turn Based RPG'}));
       $('footer').replaceWith(Handlebars.templates['footer-template']());
       loadMain();
