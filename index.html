@@ -80,8 +80,8 @@
 
     var lookupPost = function(page){
       for(var post in postdata.posts){
-        if(post.page == page){
-          return post;
+        if(postdata.posts[post].page == page){
+          return postdata.posts[post];
         }
       }
 
