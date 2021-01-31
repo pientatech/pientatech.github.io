@@ -61,16 +61,10 @@
 
     $(document).ready(function(){
       fetchData(`postlog.json`).then(data => {postdata = data; initMainPage();});
-      // postdata = postdata.posts.sort(function(a, b) {
-      //   return new Date(a.postdate) - new Date(b.postdate);
-      // });
-
-
-      
-      //initMainPage();
     });
 
     var initMainPage = function(){
+      console.dir(postdata);
       Handlebars.getTemplate('header-template');
       Handlebars.getTemplate('navigation-template');
       Handlebars.getTemplate('footer-template');
