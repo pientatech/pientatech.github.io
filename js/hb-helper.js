@@ -23,7 +23,7 @@ $(document).ready(function(){
 
 var initMainPage = function(){
     postdata.posts.sort(function(a, b) {
-        return new Date(a.postdate) - new Date(b.postdate);
+        return new Date(b.postdate) - new Date(a.postdate);
     });
 
     Handlebars.getTemplate('header-template');
