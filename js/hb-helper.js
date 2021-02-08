@@ -35,7 +35,7 @@ var initMainPage = function(){
 
     //apply footer
     $('nav').replaceWith(Handlebars.templates['navigation-template']({pages: ['Home','About'], menuname: 'Menu'}));
-    $('header').replaceWith(Handlebars.templates['header-template']({image: 'first.png', heading: 'Cardboard RPG', sub_heading: 'Low-Poly Turn Based RPG'}));
+    $('header').replaceWith(Handlebars.templates['header-template']({image: 'town-1.png', heading: 'Cardboard RPG', sub_heading: 'Low-Poly Turn Based RPG'}));
     $('footer').replaceWith(Handlebars.templates['footer-template']());
     loadMain();
 };
